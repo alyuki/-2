@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<table th:object="${simpleForm}">
+		<tr>
+            <th>Email (femail)</th>
+            <td th:text="*{femail}"></td>
+          </tr>
+          <tr>
+            <th>password (fpass)</th>
+            <td th:text="*{fpass}"></td>
+          </tr>
+          <tr>
+            <th>single select (fselect)</th>
+            <td th:text="*{fselect}"></td>
+          </tr>
+          <tr>
+            <th>multi select (fselect)</th>
+            <td>
+              <p th:each="c : *{fmselect}" th:text="${c}"></p>
+            </td>
+          </tr>
+          <tr>
+            <th>single checkbox (fcheck)</th>
+            <td th:text="*{fcheck}"></td>
+          </tr>
+          <tr>
+            <th>radio (fradio)</th>
+            <td th:text="*{fradio}"></td>
+          </tr>
+	</table>
+	<hr/>
+	<form th:action="@{/simple/}" method="get">		
+        <button type="submit">back form</button>
+	</form>
+</body>
+</html>
